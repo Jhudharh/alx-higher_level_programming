@@ -3,4 +3,4 @@
 response=$(curl -s $1)
 
 # Get the length of the response body in bytes
-size=$(echo -n "$response" | wc -c)
+$(echo -n "$response" | wc -c)
