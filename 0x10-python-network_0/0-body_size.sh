@@ -6,13 +6,11 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-# Send a GET request to the URL and save the response to a file
-curl -s -o /tmp/response.txt -w '%{size_download}' $1 > /dev/null
+# Send a GET request to the URL and save the response to a variable
+response=$(curl -s $1)
+
+# Get the length of the response body in bytes
+size=$(echo -n "$response" | wc -c)
 
 # Display the size of the body of the response in bytes
-size=$(cat /tmp/response.txt)
 echo "Size of the response body: $size bytes"
-
-# Remove the temporary file
-rm /tmp/response.txt
-
