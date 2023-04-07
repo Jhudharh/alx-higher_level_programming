@@ -1,11 +1,4 @@
 #!/bin/bash
-
-# Check if a URL argument is provided
-if [ $# -eq 0 ]; then
-    echo "Error: URL argument is missing"
-    exit 1
-fi
-
 # Send a GET request to the URL and save the response to a variable
 response=$(curl -s $1)
 
